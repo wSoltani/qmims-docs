@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+    --sidebar-title: 215 25% 27%;
+    --sidebar-section: 215 15% 50%;
+  }
+
+  .dark {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.5%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.5%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 14.5%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 83%;
+    --sidebar-title: 0 0% 85%;
+    --sidebar-section: 0 0% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .sidebar-section-title {
+    @apply text-[hsl(var(--sidebar-title))] font-bold uppercase tracking-wide text-xs;
+  }
+
+  .sidebar-section {
+    @apply text-[hsl(var(--sidebar-section))] font-medium;
+  }
+}
+
+/* Custom Scrollbar Styles */
+@layer utilities {
+  /* For WebKit browsers (Chrome, Safari, newer Edge) */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background) / 0.5);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: var(--radius);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.5);
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+  }
+
+  /* For Edge (legacy) */
+  @supports (-ms-overflow-style: none) {
+    * {
+      -ms-overflow-style: auto;
+    }
+  }
+
+  /* Dark mode adjustments */
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(var(--background) / 0.2);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.4);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.6);
+  }
+
+  /* Scrollbar edge alignment */
+  .scrollbar-edge {
+    /* Ensure scrollbar is at the edge */
+    scrollbar-gutter: stable;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  /* For WebKit browsers - ensure scrollbar aligns with edge */
+  .scrollbar-edge::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+    position: absolute;
+    right: 0;
+  }
+
+  .scrollbar-edge::-webkit-scrollbar-track {
+    background: transparent;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .scrollbar-edge::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.3);
+    border-radius: 3px;
+    border: none;
+  }
+
+  /* Firefox specific adjustments */
+  @supports (scrollbar-width: thin) {
+    .scrollbar-edge {
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--muted-foreground) / 0.3) transparent;
+    }
+  }
+}
