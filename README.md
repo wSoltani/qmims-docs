@@ -1,93 +1,93 @@
 # qmims Documentation Website
 
-This repository contains the documentation website for qmims, built with Next.js and Tailwind CSS. The website provides comprehensive documentation on how to use the qmims CLI tool for generating and editing README files with AI assistance.
+[![Visit Website](https://img.shields.io/badge/Visit-qmims.vercel.app-blue)](https://qmims.vercel.app)
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black)](https://nextjs.org/)
+[![UI: Tailwind CSS](https://img.shields.io/badge/UI-Tailwind%20CSS-38B2AC)](https://tailwindcss.com/)
+[![Components: shadcn/ui](https://img.shields.io/badge/Components-shadcn%2Fui-000000)](https://ui.shadcn.com/)
 
-You can visit the hosted [documentation website](https://qmims.vercel.app/).
+This repository contains the official documentation website for [qmims](https://github.com/wSoltani/qmims), an AI-powered README generation and editing CLI tool. The website provides comprehensive guides, tutorials, and reference materials for users of the qmims CLI.
 
-## Technologies Used
+## 🌐 About the Website
 
-- Next.js
-- Tailwind CSS
-- Radix UI Components
-- TypeScript
+The qmims documentation website is designed to be:
 
-# qmims
+- **Comprehensive** - Covering all aspects of the qmims CLI tool
+- **User-friendly** - With intuitive navigation and clear explanations
+- **Responsive** - Works on all devices from mobile to desktop
+- **Accessible** - Following web accessibility best practices
 
-A modern, AI-powered README generation and editing tool built with TypeScript, leveraging Amazon Q Developer CLI to help developers create and maintain high-quality documentation.
+Visit the live website at [qmims.vercel.app](https://qmims.vercel.app)
 
-## Introduction
+## 🛠️ Technology Stack
 
-qmims is an intelligent documentation assistant designed to streamline the process of creating and maintaining README files for your projects. By harnessing the power of Amazon Q Developer CLI, qmims enables developers to generate comprehensive, well-structured documentation with minimal effort. Whether you're starting a new project or updating an existing one, qmims helps ensure your documentation remains clear, consistent, and complete.
+- **Framework**: [Next.js](https://nextjs.org/) - React framework for production
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/) - Re-usable components built on Radix UI
+- **Language**: [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript
+- **Theme**: [next-themes](https://github.com/pacocoursey/next-themes) - Dark/light mode support
+- **Icons**: [Lucide React](https://lucide.dev/) - Beautiful & consistent icons
 
-## Features
+## 📚 Documentation Content
 
-- **Multiple Generation Modes**
+The website provides documentation for the qmims CLI tool, including:
 
-  - Quick generation for simple projects
-  - Detailed generation with comprehensive sections
-  - Custom generation based on specific requirements
+### Core Features
 
-- **Template Management**
+- **AI-Powered Generation** - Using Amazon Q Developer to create READMEs
+- **Multiple Generation Modes** - Auto, Template, and Instruct modes
+- **Template Management** - Using and creating custom templates
+- **Embedded Instructions** - Special comment blocks for guided editing
+- **Interactive Editing** - Targeted modifications to existing READMEs
+- **Configuration Management** - Customizing default behaviors
 
-  - Pre-defined templates for different project types
-  - Custom template creation and storage
-  - Template sharing capabilities
+### Guides & Tutorials
 
-- **Embedded Instructions**
+- Installation and setup guides
+- Command reference with examples
+- Best practices for README creation
+- Advanced usage techniques
+- Troubleshooting common issues
 
-  - Add special comment blocks in your README to guide future updates
-  - Preserve sections during regeneration
-  - Include specific instructions for AI-assisted editing
+## 🚀 Getting Started
 
-- **Interactive Editing**
+To run this documentation website locally:
 
-  - Update specific sections without regenerating the entire document
-  - Smart content suggestions based on project context
-  - Markdown validation and formatting
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/wSoltani/qmims-docs.git
+   cd qmims-docs
+   ```
 
-- **Project Analysis**
-  - Automatic detection of project structure and dependencies
-  - Intelligent suggestions based on codebase analysis
-  - Integration with package managers for accurate information
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   pnpm install
+   ```
 
-## Installation
+3. Start the development server:
+   ```bash
+   npm run dev
+   # or
+   pnpm dev
+   ```
 
-Install qmims globally using npm:
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-```bash
-npm install -g qmims
-```
+## 🔄 Related Projects
 
-Ensure you have Amazon Q Developer CLI installed and configured.
+- [qmims](https://github.com/wSoltani/qmims) - The main CLI tool repository
 
-## Usage
+## 📝 Contributing
 
-### Generate a new README
+Contributions to improve the documentation website are welcome! Please feel free to submit pull requests for:
 
-```bash
-qmims generate
-```
+- Documentation improvements or corrections
+- UI/UX enhancements
+- New examples or tutorials
+- Bug fixes
 
-### Edit an existing README
-
-```bash
-qmims edit
-```
-
-### Templates
-
-List available templates:
-
-```bash
-qmims templates list
-```
-
-### Configure qmims
-
-```bash
-qmims config setup
-```
-
-## License
+## 📄 License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+

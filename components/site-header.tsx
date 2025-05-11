@@ -1,18 +1,31 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { Button } from "@/components/ui/button"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { CommandMenu } from "@/components/command-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { Menu } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { useState } from "react"
+import Link from "next/link";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { CommandMenu } from "@/components/command-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 
 export function SiteHeader() {
-  const pathname = usePathname()
-  const [open, setOpen] = useState(false)
+  const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+  const { theme, resolvedTheme } = useTheme();
+  const [logoSrc, setLogoSrc] = useState("/qmims-cli-logo.svg");
+
+  useEffect(() => {
+    // Set the appropriate logo based on the theme
+    setLogoSrc(
+      resolvedTheme === "dark"
+        ? "/qmims-cli-logo-dark.svg"
+        : "/qmims-cli-logo.svg"
+    );
+  }, [resolvedTheme]);
 
   const routes = [
     {
@@ -25,23 +38,32 @@ export function SiteHeader() {
       label: "Documentation",
       active: pathname.startsWith("/docs"),
     },
-  ]
+  ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
-        <div className="mr-4 flex">
-          <Link href="/" className="mr-6 flex items-center space-x-2">
-            <span className="font-bold text-xl">qmims</span>
+        <div className="mr-4 flex items-center">
+          <Link href="/" className="mr-6 flex items-center">
+            <div className="relative h-8 w-24">
+              <Image
+                src={logoSrc}
+                alt="QMIMS CLI Tool"
+                width={100}
+                height={40}
+                className="object-contain"
+                priority
+              />
+            </div>
           </Link>
-          <nav className="hidden md:flex gap-6">
+          <nav className="hidden md:flex items-center gap-6">
             {routes.map((route) => (
               <Link
                 key={route.href}
                 href={route.href}
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-primary",
-                  route.active ? "text-foreground" : "text-foreground/60",
+                  route.active ? "text-foreground" : "text-foreground/60"
                 )}
               >
                 {route.label}
@@ -69,7 +91,9 @@ export function SiteHeader() {
                         href={route.href}
                         className={cn(
                           "text-sm font-medium transition-colors hover:text-primary",
-                          route.active ? "text-foreground" : "text-foreground/60",
+                          route.active
+                            ? "text-foreground"
+                            : "text-foreground/60"
                         )}
                         onClick={() => setOpen(false)}
                       >
@@ -84,5 +108,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }
