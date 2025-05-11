@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Terminal window background -->
+  <rect width="32" height="32" rx="4" fill="#2D2D2D"/>
+  
+  <!-- Terminal header -->
+  <rect width="32" height="4" rx="2" fill="#444444"/>
+  
+  <!-- Terminal buttons -->
+  <circle cx="4" cy="2" r="1" fill="#FF5F56"/>
+  <circle cx="8" cy="2" r="1" fill="#FFBD2E"/>
+  <circle cx="12" cy="2" r="1" fill="#27C93F"/>
+  
+  <!-- Centered content group -->
+  <g transform="translate(0, 2)">
+    <!-- Command prompt symbol -->
+    <text x="6" y="16" font-family="monospace" font-size="10" dominant-baseline="middle" fill="#00FF00">$</text>
+    
+    <!-- Letter q for qmims -->
+    <text x="14" y="16" font-family="monospace" font-weight="bold" font-size="10" dominant-baseline="middle" fill="#00FF00">q</text>
+    
+    <!-- Blinking cursor -->
+    <rect x="22" y="12" width="1.5" height="8" fill="#00FF00">
+      <animate attributeName="opacity" values="1;0;1" dur="1.2s" repeatCount="indefinite" />
+    </rect>
+  </g>
+</svg>
