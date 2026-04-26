@@ -1,126 +1,263 @@
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal, AlertTriangle } from "lucide-react"
+import Link from "next/link";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Terminal, AlertTriangle, Info } from "lucide-react";
 
 export default function InstallationPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Installation</h1>
-        <p className="text-lg text-muted-foreground mt-2">How to install and set up qmims</p>
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Installation
+        </h1>
+        <p className="mt-2 text-lg text-muted-foreground">
+          How to install and set up qmims with Kiro CLI
+        </p>
       </div>
 
       <div className="space-y-4">
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Prerequisites</h2>
+        <p>
+          <strong>qmims</strong> requires <strong>Node.js 18+</strong> and an
+          available, authenticated <strong>Kiro CLI</strong> installation. Once
+          both are ready, you can install <code>qmims</code> globally and start
+          generating or editing README files.
+        </p>
 
-        <p>Before installing qmims, ensure you have:</p>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Prerequisites
+        </h2>
 
-        <div className="space-y-4">
+        <div className="space-y-6">
           <div className="space-y-2">
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">1. Node.js</h3>
-            <p>Version 18.x or later</p>
-            <div className="bg-muted p-4 rounded-md">
+            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              1. Node.js
+            </h3>
+            <p>Install Node.js version 18 or later.</p>
+            <div className="rounded-md bg-muted p-4">
               <pre className="text-sm font-mono">node --version</pre>
             </div>
           </div>
 
           <div className="space-y-2">
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">2. Amazon Q Developer CLI</h3>
-            <p>Must be installed and authenticated</p>
-            <ul className="list-disc pl-6 space-y-2">
-              <li>
-                <a
-                  href="https://docs.aws.amazon.com/amazonq/latest/qdeveloper-ug/command-line-installing.html"
-                  className="text-primary underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Install Amazon Q Developer CLI
-                </a>
-              </li>
-              <li>
-                Authenticate with:
-                <div className="bg-muted p-4 rounded-md mt-2">
-                  <pre className="text-sm font-mono">q login</pre>
+            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              2. Kiro CLI
+            </h3>
+            <p>
+              Kiro CLI must be installed and authenticated before using qmims.
+            </p>
+
+            <Alert>
+              <Info className="h-4 w-4" />
+              <AlertTitle>Kiro migration note</AlertTitle>
+              <AlertDescription>
+                qmims was originally built around Amazon Q CLI and has now been
+                migrated to <strong>Kiro CLI</strong>. Current setup, auth, and
+                troubleshooting guidance all use Kiro commands.
+              </AlertDescription>
+            </Alert>
+
+            <Tabs defaultValue="windows" className="w-full">
+              <TabsList className="grid w-full grid-cols-3">
+                <TabsTrigger value="windows">Windows</TabsTrigger>
+                <TabsTrigger value="macos">macOS</TabsTrigger>
+                <TabsTrigger value="linux">Linux</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="windows" className="space-y-4">
+                <div className="space-y-2">
+                  <p>
+                    <strong>Windows 11</strong>: run the official installer
+                    command in <strong>PowerShell</strong> or{" "}
+                    <strong>Windows Terminal</strong>, not Command Prompt.
+                  </p>
+                  <div className="rounded-md bg-muted p-4">
+                    <pre className="text-sm font-mono">
+                      irm &apos;https://cli.kiro.dev/install.ps1&apos; | iex
+                    </pre>
+                  </div>
                 </div>
-              </li>
-              <li>
-                Verify installation:
-                <div className="bg-muted p-4 rounded-md mt-2">
-                  <pre className="text-sm font-mono">q chat "What is Amazon Q Developer?"</pre>
+
+                <div className="space-y-2">
+                  <p>
+                    <strong>Windows 10</strong>: use the downloads page instead
+                    of the Windows 11 installer flow.
+                  </p>
+                  <p>
+                    <a
+                      href="https://kiro.dev/downloads/"
+                      className="text-primary underline"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Open Kiro downloads
+                    </a>
+                  </p>
                 </div>
-              </li>
-            </ul>
+              </TabsContent>
+
+              <TabsContent value="macos" className="space-y-4">
+                <p>Install Kiro CLI using the official script:</p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    curl -fsSL https://cli.kiro.dev/install | bash
+                  </pre>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="linux" className="space-y-4">
+                <p>
+                  Kiro provides Linux installation options through the official
+                  installation docs, including packaged distribution guidance.
+                </p>
+                <p>
+                  <a
+                    href="https://kiro.dev/docs/cli/installation/"
+                    className="text-primary underline"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    View Linux installation instructions
+                  </a>
+                </p>
+              </TabsContent>
+            </Tabs>
           </div>
 
           <div className="space-y-2">
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">3. pnpm (for source installation)</h3>
-            <p>qmims uses pnpm as its package manager for source installation</p>
-            <div className="bg-muted p-4 rounded-md">
+            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">
+              3. Authenticate Kiro CLI
+            </h3>
+            <p>Sign in interactively:</p>
+            <div className="rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">kiro-cli login</pre>
+            </div>
+
+            <p>Verify that Kiro CLI is available and authenticated:</p>
+            <div className="rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">{`kiro-cli --version
+kiro-cli whoami`}</pre>
+            </div>
+
+            <p>
+              For remote or SSH environments, device-flow login may be more
+              convenient:
+            </p>
+            <div className="rounded-md bg-muted p-4">
               <pre className="text-sm font-mono">
-                # Install pnpm if not already installed npm install -g pnpm # Verify pnpm installation pnpm --version
+                kiro-cli login --use-device-flow
               </pre>
             </div>
+
+            <Alert>
+              <Terminal className="h-4 w-4" />
+              <AlertTitle>Headless / CI usage</AlertTitle>
+              <AlertDescription>
+                If you are running qmims in CI or another non-interactive
+                environment, set <code>KIRO_API_KEY</code> instead of relying on
+                browser login.
+                <div className="mt-3 space-y-3">
+                  <div className="rounded-md bg-muted p-4">
+                    <pre className="text-sm font-mono">{`# Linux / macOS
+export KIRO_API_KEY=your_api_key_here`}</pre>
+                  </div>
+                  <div className="rounded-md bg-muted p-4">
+                    <pre className="text-sm font-mono">{`# Windows PowerShell
+$env:KIRO_API_KEY = "your_api_key_here"`}</pre>
+                  </div>
+                </div>
+              </AlertDescription>
+            </Alert>
           </div>
         </div>
 
-        <Alert>
-          <Terminal className="h-4 w-4" />
-          <AlertTitle>Important</AlertTitle>
-          <AlertDescription>
-            Make sure Amazon Q Developer CLI is properly authenticated before using qmims.
-          </AlertDescription>
-        </Alert>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Installation Methods</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">
+          Install qmims
+        </h2>
 
         <Tabs defaultValue="npm">
           <TabsList>
             <TabsTrigger value="npm">npm</TabsTrigger>
+            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
             <TabsTrigger value="source">From Source</TabsTrigger>
           </TabsList>
+
           <TabsContent value="npm" className="space-y-4">
-            <p>Install qmims globally using npm:</p>
-            <div className="bg-muted p-4 rounded-md">
+            <p>Install qmims globally with npm:</p>
+            <div className="rounded-md bg-muted p-4">
               <pre className="text-sm font-mono">npm install -g qmims</pre>
             </div>
-            <p>Or using pnpm:</p>
-            <div className="bg-muted p-4 rounded-md">
+          </TabsContent>
+
+          <TabsContent value="pnpm" className="space-y-4">
+            <p>Install qmims globally with pnpm:</p>
+            <div className="rounded-md bg-muted p-4">
               <pre className="text-sm font-mono">pnpm add -g qmims</pre>
             </div>
           </TabsContent>
+
           <TabsContent value="source" className="space-y-4">
-            <p>To install from source:</p>
-            <div className="bg-muted p-4 rounded-md">
-              <pre className="text-sm font-mono">
-                git clone https://github.com/wSoltani/qmims.git cd qmims pnpm install pnpm build pnpm link --global
-              </pre>
+            <p>To run or build qmims from source:</p>
+            <div className="rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">{`git clone https://github.com/wSoltani/qmims.git
+cd qmims
+pnpm install
+pnpm build
+pnpm link --global`}</pre>
             </div>
           </TabsContent>
         </Tabs>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Verifying Installation</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">
+          Verify the installation
+        </h2>
 
-        <p>After installation, verify that qmims is correctly installed:</p>
-
-        <div className="bg-muted p-4 rounded-md">
+        <p>After installation, confirm that qmims is available:</p>
+        <div className="rounded-md bg-muted p-4">
           <pre className="text-sm font-mono">qmims --version</pre>
         </div>
 
-        <p>You should see the current version number (0.0.2) displayed.</p>
+        <p>Then verify your Kiro-backed workflow is ready:</p>
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`kiro-cli whoami
+qmims generate --dry-run`}</pre>
+        </div>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">
+          Recommended first run
+        </h2>
+
+        <p>Once everything is installed, a simple first run looks like this:</p>
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`qmims generate
+qmims edit`}</pre>
+        </div>
+
+        <Alert>
+          <Terminal className="h-4 w-4" />
+          <AlertTitle>Troubleshooting commands</AlertTitle>
+          <AlertDescription>
+            If qmims reports that Kiro is missing or not authenticated, these
+            are the main commands to check:
+            <div className="mt-3 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">{`kiro-cli whoami
+kiro-cli login
+kiro-cli doctor`}</pre>
+            </div>
+          </AlertDescription>
+        </Alert>
 
         <Alert variant="destructive" className="mt-6">
           <AlertTriangle className="h-4 w-4" />
-          <AlertTitle>Troubleshooting</AlertTitle>
+          <AlertTitle>Need help?</AlertTitle>
           <AlertDescription>
-            If you encounter any issues during installation, please refer to the{" "}
-            <a href="/docs/troubleshooting" className="underline">
+            If installation or authentication fails, check the{" "}
+            <Link href="/docs/troubleshooting" className="underline">
               Troubleshooting
-            </a>{" "}
-            section.
+            </Link>{" "}
+            guide for common Kiro and qmims setup issues.
           </AlertDescription>
         </Alert>
       </div>
     </div>
-  )
+  );
 }

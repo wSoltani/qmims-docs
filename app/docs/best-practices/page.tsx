@@ -1,311 +1,439 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal, Lightbulb } from "lucide-react"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import Link from "next/link";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Terminal, Lightbulb, ShieldCheck, FileText } from "lucide-react";
 
 export default function BestPracticesPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Best Practices</h1>
-        <p className="text-lg text-muted-foreground mt-2">Tips and recommendations for using qmims effectively</p>
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Best Practices
+        </h1>
+        <p className="mt-2 text-lg text-muted-foreground">
+          Practical guidance for getting high-quality results from qmims and
+          Kiro CLI
+        </p>
       </div>
 
       <div className="space-y-4">
         <p>
-          This section provides best practices and recommendations for using qmims effectively. Following these
-          guidelines will help you create high-quality documentation for your projects.
+          qmims works best when you treat README generation as an iterative
+          workflow rather than a one-click final step. Use Kiro-backed
+          generation to create a strong draft, then refine structure,
+          instructions, and examples until the documentation matches the real
+          behavior of your project.
         </p>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">README Structure</h2>
+        <Alert>
+          <Lightbulb className="h-4 w-4" />
+          <AlertTitle>Core idea</AlertTitle>
+          <AlertDescription>
+            Start broad, then get specific. Use <code>generate</code> for the
+            first pass, templates for structure, and embedded instructions for
+            precision.
+          </AlertDescription>
+        </Alert>
 
-        <p>A good README typically includes:</p>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Build a Strong README Structure
+        </h2>
+
+        <p>A useful README usually answers these questions quickly:</p>
 
         <div className="grid gap-4 md:grid-cols-3">
           <Card>
             <CardHeader>
-              <CardTitle>Essential Information</CardTitle>
-              <CardDescription>Core project details</CardDescription>
+              <CardTitle>What is this?</CardTitle>
+              <CardDescription>Project overview and purpose</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-2">
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Project title and description</li>
-                <li>Badges (build status, version, license)</li>
+            <CardContent className="space-y-2 text-sm text-muted-foreground">
+              <ul className="list-disc space-y-1 pl-4">
+                <li>Project title</li>
+                <li>Concise summary</li>
+                <li>Main use case</li>
                 <li>Key features</li>
               </ul>
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader>
-              <CardTitle>Usage Information</CardTitle>
-              <CardDescription>How to use the project</CardDescription>
+              <CardTitle>How do I use it?</CardTitle>
+              <CardDescription>Installation and usage flow</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-2">
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Installation instructions</li>
-                <li>Usage examples with code</li>
-                <li>API documentation (if applicable)</li>
+            <CardContent className="space-y-2 text-sm text-muted-foreground">
+              <ul className="list-disc space-y-1 pl-4">
+                <li>Prerequisites</li>
+                <li>Installation steps</li>
+                <li>Commands or examples</li>
+                <li>Common workflows</li>
               </ul>
             </CardContent>
           </Card>
+
           <Card>
             <CardHeader>
-              <CardTitle>Additional Information</CardTitle>
+              <CardTitle>What else should I know?</CardTitle>
               <CardDescription>Supporting details</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-2">
-              <ul className="list-disc pl-4 space-y-1">
-                <li>Contributing guidelines</li>
-                <li>License information</li>
-                <li>Acknowledgements</li>
+            <CardContent className="space-y-2 text-sm text-muted-foreground">
+              <ul className="list-disc space-y-1 pl-4">
+                <li>Configuration</li>
+                <li>Contributing notes</li>
+                <li>License</li>
+                <li>Troubleshooting links</li>
               </ul>
             </CardContent>
           </Card>
         </div>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Using qmims Effectively</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Choose the Right qmims Workflow
+        </h2>
 
         <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Start with Auto Mode</h3>
+          <div className="rounded-lg border p-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Start with Auto Mode
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              Use auto mode when you want qmims and Kiro to inspect the project
+              and produce a full README draft quickly.
+            </p>
+            <div className="mt-3 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims generate --mode auto
+              </pre>
+            </div>
           </div>
-          <p>
-            For new projects, start with auto mode to generate a comprehensive README. This will analyze your project
-            and create a well-structured document.
-          </p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims generate --mode auto</pre>
+
+          <div className="rounded-lg border p-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Use Templates for Consistency
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              If you want a predictable structure across multiple repositories,
+              generate from a built-in or custom template.
+            </p>
+            <div className="mt-3 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims generate --mode template:detailed
+              </pre>
+            </div>
+          </div>
+
+          <div className="rounded-lg border p-4">
+            <h3 className="text-xl font-semibold tracking-tight">
+              Use Embedded Instructions for Precision
+            </h3>
+            <p className="mt-2 text-muted-foreground">
+              Once the document exists, add targeted{" "}
+              <code>{`<!-- qmims: ... -->`}</code> comments to control exactly
+              what specific sections should say.
+            </p>
+            <div className="mt-3 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">qmims edit</pre>
+            </div>
           </div>
         </div>
 
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Write Better Embedded Instructions
+        </h2>
+
+        <p>
+          Kiro can only be as specific as the instruction you provide. The more
+          grounded your instruction is in your project context and desired
+          format, the better the output tends to be.
+        </p>
+
         <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Refine with Templates</h3>
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold">1. Be specific about the task</h3>
+            <div className="mt-3 grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="mb-2 font-medium text-destructive">
+                  Less effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: Write about installation -->`}
+                  </pre>
+                </div>
+              </div>
+              <div>
+                <p className="mb-2 font-medium text-green-600">
+                  More effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: Provide step-by-step installation instructions using the detected package manager, including prerequisites and a verification command. -->`}
+                  </pre>
+                </div>
+              </div>
+            </div>
           </div>
-          <p>
-            Use templates for more structured documentation. Choose a template that matches your project type for
-            consistent formatting.
-          </p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims generate --mode template:detailed</pre>
+
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold">2. Add project context</h3>
+            <div className="mt-3 grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="mb-2 font-medium text-destructive">
+                  Less effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: List the features -->`}
+                  </pre>
+                </div>
+              </div>
+              <div>
+                <p className="mb-2 font-medium text-green-600">
+                  More effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: List the main user-facing features of this CLI tool based on the commands, options, and workflows implemented in the src directory. -->`}
+                  </pre>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="rounded-lg border p-4">
+            <h3 className="font-semibold">
+              3. Ask for a format when it matters
+            </h3>
+            <div className="mt-3 grid gap-4 md:grid-cols-2">
+              <div>
+                <p className="mb-2 font-medium text-destructive">
+                  Less effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: Document the API -->`}
+                  </pre>
+                </div>
+              </div>
+              <div>
+                <p className="mb-2 font-medium text-green-600">
+                  More effective
+                </p>
+                <div className="rounded-md bg-muted p-4">
+                  <pre className="text-sm font-mono">
+                    {`<!-- qmims: Document the exported API as a table with columns for name, purpose, parameters, and return value. -->`}
+                  </pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Fine-tune with Embedded Instructions</h3>
-          </div>
-          <p>
-            Add specific instructions for precise control over content generation. This is especially useful for
-            updating specific sections of your README.
-          </p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims edit</pre>
-          </div>
-        </div>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Review AI-Generated Output Carefully
+        </h2>
 
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Set Default Configuration</h3>
-          </div>
-          <p>Configure qmims to match your preferences for a more streamlined workflow.</p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims config setup</pre>
-          </div>
-        </div>
+        <p>
+          qmims helps you move faster, but you should still review the generated
+          content before treating it as final documentation.
+        </p>
 
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Create Custom Templates</h3>
-          </div>
-          <p>For projects with specific documentation needs, create custom templates that match your requirements.</p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims templates add my-template path/to/template.md</pre>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Use Dry Run</h3>
-          </div>
-          <p>Preview changes before applying them to ensure they meet your expectations.</p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">qmims generate --dry-run</pre>
-          </div>
-        </div>
-
-        <div className="space-y-4">
-          <div className="flex items-center space-x-2">
-            <Lightbulb className="h-5 w-5 text-primary" />
-            <h3 className="scroll-m-20 text-xl font-semibold tracking-tight">Combine with Git Workflow</h3>
-          </div>
-          <p>Integrate README generation into your development workflow for consistent documentation.</p>
-          <div className="bg-muted p-4 rounded-md">
-            <pre className="text-sm font-mono">
-              qmims generate && git add README.md && git commit -m "docs: update README"
-            </pre>
-          </div>
-        </div>
+        <ul className="list-disc space-y-2 pl-6">
+          <li>
+            Check installation commands against the actual package manager and
+            runtime
+          </li>
+          <li>Verify code examples still match the current API</li>
+          <li>Remove claims that are too broad or speculative</li>
+          <li>Make sure feature lists reflect real implemented behavior</li>
+          <li>Confirm links, filenames, and command names are correct</li>
+        </ul>
 
         <Alert>
-          <Terminal className="h-4 w-4" />
-          <AlertTitle>Tip</AlertTitle>
+          <ShieldCheck className="h-4 w-4" />
+          <AlertTitle>Especially important after major changes</AlertTitle>
           <AlertDescription>
-            Set up a pre-commit hook to automatically update your README before committing changes. This ensures your
-            documentation stays up-to-date with your code.
+            After migrations, renames, or CLI behavior changes, review docs for
+            stale commands, outdated screenshots, and old platform guidance.
           </AlertDescription>
         </Alert>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Writing Effective Instructions</h2>
-
-        <p>When writing embedded instructions for qmims, follow these guidelines:</p>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <th className="border px-4 py-2 text-left font-bold">Guideline</th>
-                <th className="border px-4 py-2 text-left font-bold">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">Be specific about what you want</td>
-                <td className="border px-4 py-2 text-left">
-                  <code>
-                    &lt;!-- qmims: Generate a step-by-step installation guide for this Node.js library, including all
-                    dependencies --&gt;
-                  </code>
-                </td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">Provide context about the project</td>
-                <td className="border px-4 py-2 text-left">
-                  <code>
-                    &lt;!-- qmims: Describe this REST API framework, highlighting its performance benefits and
-                    scalability features --&gt;
-                  </code>
-                </td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">Specify the desired format</td>
-                <td className="border px-4 py-2 text-left">
-                  <code>
-                    &lt;!-- qmims: List the API endpoints as a table with columns for Method, Endpoint, Description, and
-                    Required Parameters --&gt;
-                  </code>
-                </td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">Indicate the level of detail</td>
-                <td className="border px-4 py-2 text-left">
-                  <code>
-                    &lt;!-- qmims: Provide a concise overview (2-3 sentences) of the project's purpose and main features
-                    --&gt;
-                  </code>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Documentation Maintenance</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Use Dry Runs and Verbose Output
+        </h2>
 
         <p>
-          Keeping your documentation up-to-date is essential. Here are some best practices for maintaining your README:
+          Before changing important documentation, preview the workflow and use
+          diagnostic output when you need more visibility.
         </p>
 
-        <ul className="list-disc pl-6 space-y-2">
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`qmims generate --dry-run
+qmims edit --dry-run
+qmims generate --verbose`}</pre>
+        </div>
+
+        <ul className="list-disc space-y-2 pl-6">
           <li>
-            <strong>Regular Updates</strong>: Update your README whenever you make significant changes to your project
+            Use <code>--dry-run</code> to confirm the planned action and target
+            file
           </li>
           <li>
-            <strong>Version Alignment</strong>: Ensure your documentation version matches your code version
+            Use <code>--verbose</code> when debugging auth, file resolution, or
+            generation behavior
+          </li>
+          <li>Prefer previewing before overwriting existing docs</li>
+        </ul>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Keep Kiro Ready
+        </h2>
+
+        <p>
+          Since qmims depends on Kiro CLI, a good documentation workflow also
+          means keeping your Kiro setup healthy.
+        </p>
+
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`kiro-cli whoami
+kiro-cli login
+kiro-cli doctor`}</pre>
+        </div>
+
+        <p>
+          For automation or CI, prefer a headless setup using{" "}
+          <code>KIRO_API_KEY</code> rather than relying on an interactive login
+          session.
+        </p>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Prefer Explicit Git Workflows
+        </h2>
+
+        <p>
+          qmims does not currently expose Git auto-commit as a supported
+          feature. If you want generated documentation committed, do it
+          explicitly in your normal workflow.
+        </p>
+
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">
+            {`qmims generate
+git add README.md
+git commit -m "docs: update README"`}
+          </pre>
+        </div>
+
+        <p>
+          This keeps generated documentation changes visible and reviewable
+          instead of hiding them behind an automatic commit step.
+        </p>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Suggested Documentation Workflow
+        </h2>
+
+        <ol className="list-decimal space-y-3 pl-6">
+          <li>
+            <strong>Generate a first draft</strong>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims generate --dry-run{"\n"}qmims generate
+              </pre>
+            </div>
           </li>
           <li>
-            <strong>Automated Updates</strong>: Use CI/CD pipelines to automatically update documentation
+            <strong>Improve structure if needed</strong>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims generate --mode template:detailed
+              </pre>
+            </div>
           </li>
           <li>
-            <strong>Targeted Edits</strong>: Use <code>qmims edit</code> with embedded instructions to update specific
-            sections
+            <strong>Add targeted embedded instructions</strong>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                {`<!-- qmims: Update this section based on the latest CLI behavior. -->`}
+              </pre>
+            </div>
           </li>
           <li>
-            <strong>Review Generated Content</strong>: Always review AI-generated content for accuracy
+            <strong>Process those instructions</strong>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">qmims edit</pre>
+            </div>
+          </li>
+          <li>
+            <strong>Review and commit the result</strong>
+          </li>
+        </ol>
+
+        <Alert>
+          <FileText className="h-4 w-4" />
+          <AlertTitle>Good documentation is iterative</AlertTitle>
+          <AlertDescription>
+            The best results usually come from a short review cycle: generate,
+            refine, verify, and commit.
+          </AlertDescription>
+        </Alert>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Related Docs
+        </h2>
+
+        <ul className="list-disc space-y-2 pl-6">
+          <li>
+            <Link
+              href="/docs/generation-modes"
+              className="text-primary underline"
+            >
+              Generation Modes
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/docs/embedded-instructions"
+              className="text-primary underline"
+            >
+              Embedded Instructions
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/docs/advanced-usage"
+              className="text-primary underline"
+            >
+              Advanced Usage
+            </Link>
+          </li>
+          <li>
+            <Link
+              href="/docs/troubleshooting"
+              className="text-primary underline"
+            >
+              Troubleshooting
+            </Link>
           </li>
         </ul>
 
         <Alert>
-          <Lightbulb className="h-4 w-4" />
-          <AlertTitle>Pro Tip</AlertTitle>
+          <Terminal className="h-4 w-4" />
+          <AlertTitle>Pro tip</AlertTitle>
           <AlertDescription>
-            Create a documentation checklist for your project to ensure all important aspects are covered. Use this
-            checklist when reviewing your README.
+            If a generated README feels too generic, the fix is usually better
+            structure or better instructions, not just rerunning the same
+            command unchanged.
           </AlertDescription>
         </Alert>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight mt-8">Example Workflow</h2>
-
-        <p>Here's an example workflow for creating and maintaining documentation with qmims:</p>
-
-        <ol className="list-decimal pl-6 space-y-2">
-          <li>
-            <strong>Initial Setup</strong>:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">
-                {`# Configure qmims
-qmims config setup
-
-# Set default template
-qmims config set defaults.templateName detailed`}
-              </pre>
-            </div>
-          </li>
-          <li>
-            <strong>Generate Initial README</strong>:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">
-                {`# Generate README in auto mode
-qmims generate --dry-run
-
-# Review and apply changes
-qmims generate`}
-              </pre>
-            </div>
-          </li>
-          <li>
-            <strong>Regular Updates</strong>:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">
-                {`# Add embedded instructions to README.md for sections that need updates
-# Edit README with embedded instructions
-qmims edit --dry-run
-
-# Review and apply changes
-qmims edit`}
-              </pre>
-            </div>
-          </li>
-          <li>
-            <strong>Version Updates</strong>:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">
-                {`# Update version-specific information
-qmims edit
-
-# Commit changes
-git add README.md
-git commit -m "docs: update README for version X.Y.Z"
-git push`}
-              </pre>
-            </div>
-          </li>
-        </ol>
       </div>
     </div>
-  )
+  );
 }

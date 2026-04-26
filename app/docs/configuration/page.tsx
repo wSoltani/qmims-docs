@@ -1,257 +1,248 @@
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
-import { Terminal, Info } from "lucide-react"
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Info, Terminal } from "lucide-react";
 
 export default function ConfigurationPage() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">Configuration System</h1>
-        <p className="text-lg text-muted-foreground mt-2">Managing qmims configuration settings</p>
+        <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+          Configuration System
+        </h1>
+        <p className="mt-2 text-lg text-muted-foreground">
+          Manage qmims defaults and workflow preferences
+        </p>
       </div>
 
       <div className="space-y-4">
         <p>
-          qmims uses a configuration system to store user preferences and default settings. This allows you to customize
-          the behavior of qmims to match your workflow.
+          qmims stores configuration so you can avoid repeating the same flags
+          on every run. This is useful for setting a preferred generation mode,
+          default output filename, default template, and whether Kiro-backed
+          runs should auto-approve tool permissions when applicable.
         </p>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Configuration File Location</h2>
+        <Alert>
+          <Info className="h-4 w-4" />
+          <AlertTitle>Current product behavior</AlertTitle>
+          <AlertDescription>
+            qmims is now Kiro-based. The documented configuration keys should
+            reflect the current implementation, not the older Amazon Q setup.
+          </AlertDescription>
+        </Alert>
 
-        <p>Configuration settings are stored in:</p>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          What configuration is for
+        </h2>
 
-        <ul className="list-disc pl-6 space-y-2">
+        <ul className="list-disc space-y-2 pl-6">
           <li>
-            <strong>Linux/macOS</strong>: <code>~/.config/qmims/config.json</code> or <code>~/.qmimsrc</code>
+            Set a default generation mode such as <code>auto</code> or{" "}
+            <code>template</code>
           </li>
           <li>
-            <strong>Windows</strong>: <code>%APPDATA%\qmims\config.json</code> or <code>%USERPROFILE%\.qmimsrc</code>
+            Set the default output file, such as <code>README.md</code> or{" "}
+            <code>docs/README.md</code>
+          </li>
+          <li>Choose a default template for template mode</li>
+          <li>
+            Control whether qmims should auto-approve Kiro tool permission
+            requests through config
           </li>
         </ul>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Configuration Structure</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Main configuration keys
+        </h2>
 
-        <p>The configuration file uses a JSON structure with the following sections:</p>
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead>
+              <tr className="m-0 border-t p-0 even:bg-muted">
+                <th className="border px-4 py-2 text-left font-bold">Key</th>
+                <th className="border px-4 py-2 text-left font-bold">
+                  Description
+                </th>
+                <th className="border px-4 py-2 text-left font-bold">
+                  Example
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr className="m-0 border-t p-0 even:bg-muted">
+                <td className="border px-4 py-2 text-left">defaults.mode</td>
+                <td className="border px-4 py-2 text-left">
+                  Default generation mode
+                </td>
+                <td className="border px-4 py-2 text-left">&quot;auto&quot;</td>
+              </tr>
+              <tr className="m-0 border-t p-0 even:bg-muted">
+                <td className="border px-4 py-2 text-left">
+                  defaults.outputFileName
+                </td>
+                <td className="border px-4 py-2 text-left">
+                  Default output filename for generated docs
+                </td>
+                <td className="border px-4 py-2 text-left">
+                  &quot;README.md&quot;
+                </td>
+              </tr>
+              <tr className="m-0 border-t p-0 even:bg-muted">
+                <td className="border px-4 py-2 text-left">
+                  defaults.templateName
+                </td>
+                <td className="border px-4 py-2 text-left">
+                  Default template used when template mode is selected
+                </td>
+                <td className="border px-4 py-2 text-left">
+                  &quot;detailed&quot;
+                </td>
+              </tr>
+              <tr className="m-0 border-t p-0 even:bg-muted">
+                <td className="border px-4 py-2 text-left">
+                  q.autoApproveEdits
+                </td>
+                <td className="border px-4 py-2 text-left">
+                  Automatically approve Kiro tool permission requests when
+                  applicable
+                </td>
+                <td className="border px-4 py-2 text-left">false</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">
-            {`{
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Example configuration
+        </h2>
+
+        <p>A representative qmims configuration looks like this:</p>
+
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`{
   "user": {
     "name": "Your Name",
     "email": "your.email@example.com"
   },
   "defaults": {
     "mode": "auto",
-    "templateName": "detailed",
-    "outputFilename": "README.md"
+    "outputFileName": "README.md",
+    "templateName": "detailed"
   },
   "q": {
     "autoApproveEdits": false
-  },
-  "git": {
-    "autoCommit": false,
-    "commitMessageFormat": "docs: update README.md using qmims"
   }
-}`}
-          </pre>
+}`}</pre>
         </div>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Managing Configuration</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Managing configuration from the CLI
+        </h2>
 
         <p>
-          You can manage your configuration using the <code>config</code> command:
+          You can inspect and update configuration using the <code>config</code>{" "}
+          command:
         </p>
 
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Listing Configuration</h3>
-
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">qmims config list</pre>
+        <div className="rounded-md bg-muted p-4">
+          <pre className="text-sm font-mono">{`qmims config list
+qmims config get defaults.mode
+qmims config set defaults.templateName detailed
+qmims config set defaults.outputFileName README.md
+qmims config set q.autoApproveEdits true
+qmims config delete q.autoApproveEdits
+qmims config setup`}</pre>
         </div>
 
-        <p>This will display all your current configuration settings.</p>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Practical examples
+        </h2>
 
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Getting a Specific Setting</h3>
+        <div className="space-y-4">
+          <div>
+            <p>Use template mode by default:</p>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims config set defaults.mode template
+              </pre>
+            </div>
+          </div>
 
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">qmims config get defaults.mode</pre>
-        </div>
+          <div>
+            <p>Set a preferred template:</p>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims config set defaults.templateName library
+              </pre>
+            </div>
+          </div>
 
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Setting a Configuration Value</h3>
+          <div>
+            <p>Generate to a non-default file path:</p>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims config set defaults.outputFileName docs/README.md
+              </pre>
+            </div>
+          </div>
 
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">qmims config set defaults.templateName detailed</pre>
-        </div>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Deleting a Configuration Value</h3>
-
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">qmims config delete q.autoApproveEdits</pre>
-        </div>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Interactive Setup</h3>
-
-        <div className="bg-muted p-4 rounded-md">
-          <pre className="text-sm font-mono">qmims config setup</pre>
-        </div>
-
-        <p>
-          This will guide you through setting up your configuration interactively, asking you questions about your
-          preferences.
-        </p>
-
-        <Alert>
-          <Info className="h-4 w-4" />
-          <AlertTitle>Note</AlertTitle>
-          <AlertDescription>
-            The <code>config setup</code> command is recommended for first-time users or when you want to reset your
-            configuration.
-          </AlertDescription>
-        </Alert>
-
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Configuration Sections</h2>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">User Information</h3>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <th className="border px-4 py-2 text-left font-bold">Key</th>
-                <th className="border px-4 py-2 text-left font-bold">Description</th>
-                <th className="border px-4 py-2 text-left font-bold">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">user.name</td>
-                <td className="border px-4 py-2 text-left">Your name</td>
-                <td className="border px-4 py-2 text-left">"John Doe"</td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">user.email</td>
-                <td className="border px-4 py-2 text-left">Your email address</td>
-                <td className="border px-4 py-2 text-left">"john.doe@example.com"</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Default Settings</h3>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <th className="border px-4 py-2 text-left font-bold">Key</th>
-                <th className="border px-4 py-2 text-left font-bold">Description</th>
-                <th className="border px-4 py-2 text-left font-bold">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">defaults.mode</td>
-                <td className="border px-4 py-2 text-left">Default generation mode</td>
-                <td className="border px-4 py-2 text-left">"auto"</td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">defaults.templateName</td>
-                <td className="border px-4 py-2 text-left">Default template name</td>
-                <td className="border px-4 py-2 text-left">"detailed"</td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">defaults.outputFilename</td>
-                <td className="border px-4 py-2 text-left">Default output filename</td>
-                <td className="border px-4 py-2 text-left">"README.md"</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Amazon Q Settings</h3>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <th className="border px-4 py-2 text-left font-bold">Key</th>
-                <th className="border px-4 py-2 text-left font-bold">Description</th>
-                <th className="border px-4 py-2 text-left font-bold">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">q.autoApproveEdits</td>
-                <td className="border px-4 py-2 text-left">Automatically approve edits (use with caution)</td>
-                <td className="border px-4 py-2 text-left">false</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <h3 className="scroll-m-20 text-lg font-semibold tracking-tight">Git Integration Settings</h3>
-
-        <div className="overflow-x-auto">
-          <table className="w-full">
-            <thead>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <th className="border px-4 py-2 text-left font-bold">Key</th>
-                <th className="border px-4 py-2 text-left font-bold">Description</th>
-                <th className="border px-4 py-2 text-left font-bold">Example</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">git.autoCommit</td>
-                <td className="border px-4 py-2 text-left">Automatically commit changes to git</td>
-                <td className="border px-4 py-2 text-left">false</td>
-              </tr>
-              <tr className="m-0 border-t p-0 even:bg-muted">
-                <td className="border px-4 py-2 text-left">git.commitMessageFormat</td>
-                <td className="border px-4 py-2 text-left">Format for git commit messages</td>
-                <td className="border px-4 py-2 text-left">"docs: update README.md using qmims"</td>
-              </tr>
-            </tbody>
-          </table>
+          <div>
+            <p>Enable auto-approval through config:</p>
+            <div className="mt-2 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">
+                qmims config set q.autoApproveEdits true
+              </pre>
+            </div>
+          </div>
         </div>
 
         <Alert>
           <Terminal className="h-4 w-4" />
-          <AlertTitle>Tip</AlertTitle>
+          <AlertTitle>Kiro still needs authentication</AlertTitle>
           <AlertDescription>
-            You can use environment variables to override configuration settings. For example, setting
-            <code>QMIMS_DEFAULTS_MODE=template</code> will override the <code>defaults.mode</code> setting.
+            qmims configuration does not replace Kiro authentication. You still
+            need a valid Kiro session or a <code>KIRO_API_KEY</code> in headless
+            environments.
+            <div className="mt-3 rounded-md bg-muted p-4">
+              <pre className="text-sm font-mono">{`kiro-cli login
+kiro-cli whoami
+kiro-cli doctor`}</pre>
+            </div>
           </AlertDescription>
         </Alert>
 
-        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">Configuration Best Practices</h2>
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          What is no longer documented as a config feature
+        </h2>
 
-        <ul className="list-disc pl-6 space-y-2">
+        <p>
+          qmims does not currently expose Git auto-commit as a supported
+          configuration feature. If you want generated documentation committed
+          automatically, handle that in your own Git workflow or CI pipeline.
+        </p>
+
+        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Configuration tips
+        </h2>
+
+        <ul className="list-disc space-y-2 pl-6">
           <li>
-            <strong>Set Default Template</strong>: If you frequently use a specific template, set it as your default:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">qmims config set defaults.templateName detailed</pre>
-            </div>
+            Set <code>defaults.outputFileName</code> if your team keeps docs
+            outside the repository root
           </li>
           <li>
-            <strong>Custom Output Path</strong>: If you prefer to store documentation in a specific location:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">qmims config set defaults.outputFilename docs/README.md</pre>
-            </div>
+            Set <code>defaults.templateName</code> if you use the same template
+            across many repositories
           </li>
           <li>
-            <strong>Git Integration</strong>: If you want to automatically commit changes:
-            <div className="bg-muted p-4 rounded-md mt-2">
-              <pre className="text-sm font-mono">
-                qmims config set git.autoCommit true qmims config set git.commitMessageFormat "docs: update
-                documentation"
-              </pre>
-            </div>
+            Use <code>q.autoApproveEdits</code> carefully in automation-heavy
+            workflows
           </li>
           <li>
-            <strong>Use with Caution</strong>: Be careful with settings like <code>q.autoApproveEdits</code>, which can
-            make changes without confirmation
+            Use <code>qmims config setup</code> if you want an interactive way
+            to review your defaults
           </li>
         </ul>
       </div>
     </div>
-  )
+  );
 }

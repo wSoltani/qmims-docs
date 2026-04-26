@@ -7,17 +7,17 @@ import { CommandCycle } from "@/components/command-cycle";
 export default function Home() {
   return (
     <div className="container mx-auto px-4 py-12">
-      <section className="py-12 md:py-24 lg:py-32 flex flex-col items-center text-center">
+      <section className="flex flex-col items-center py-12 text-center md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
           <div className="space-y-4">
             <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">
               <Badge variant="outline" className="mr-2">
-                v0.0.2
+                v0.1.0
               </Badge>
               AI-Powered Documentation
             </div>
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl flex justify-center w-full">
-              <div className="bg-black px-4 py-2 rounded-sm border border-gray-700 shadow-md flex align-middle">
+            <h1 className="flex w-full justify-center text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
+              <div className="flex items-center rounded-sm border border-gray-700 bg-black px-4 py-2 shadow-md">
                 <CommandCycle
                   baseCommand="qmims"
                   commands={[
@@ -29,13 +29,17 @@ export default function Home() {
                   typingSpeed={150}
                   deletingSpeed={90}
                   pauseTime={3000}
-                  className="text-3xl sm:text-4xl md:text-5xl terminal-font whitespace-nowrap"
+                  className="terminal-font whitespace-nowrap text-3xl sm:text-4xl md:text-5xl"
                 />
               </div>
             </h1>
             <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-              AI-Powered README Generation & Editing using Amazon Q Developer
-              CLI
+              AI-powered README generation and editing using Kiro CLI
+            </p>
+            <p className="mx-auto max-w-[760px] text-sm text-muted-foreground md:text-base">
+              Generate, update, and refine project documentation with
+              Kiro-backed workflows, reusable templates, and embedded
+              instructions directly inside your Markdown files.
             </p>
           </div>
           <div className="mx-auto mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -54,37 +58,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-10 md:py-16 lg:py-20 bg-muted/50 rounded-xl">
+      <section className="rounded-xl bg-muted/50 py-10 md:py-16 lg:py-20">
         <div className="container px-4 md:px-6">
           <div className="grid gap-6 lg:grid-cols-3 lg:gap-12">
-            <div className="flex flex-col items-center space-y-4 text-center min-h-[200px] flex-1 px-4">
+            <div className="flex min-h-[200px] flex-1 flex-col items-center space-y-4 px-4 text-center">
               <div className="rounded-full bg-primary p-3 text-primary-foreground">
                 <Terminal className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold">AI-Powered Content</h3>
-              <p className="text-muted-foreground min-h-[60px]">
-                Uses Amazon Q to analyze your codebase and generate relevant
-                README content
+              <h3 className="text-xl font-bold">Kiro-Powered Content</h3>
+              <p className="min-h-[60px] text-muted-foreground">
+                Uses Kiro CLI to analyze your codebase and generate relevant
+                README content with a non-interactive workflow.
               </p>
             </div>
-            <div className="flex flex-col items-center space-y-4 text-center min-h-[200px] flex-1 px-4">
+            <div className="flex min-h-[200px] flex-1 flex-col items-center space-y-4 px-4 text-center">
               <div className="rounded-full bg-primary p-3 text-primary-foreground">
                 <FileText className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold">Multiple Generation Modes</h3>
-              <p className="text-muted-foreground min-h-[60px]">
-                Auto, Template, and Instruct modes for different documentation
-                needs
+              <p className="min-h-[60px] text-muted-foreground">
+                Auto, Template, and Instruct modes give you the right balance of
+                speed, structure, and control.
               </p>
             </div>
-            <div className="flex flex-col items-center space-y-4 text-center min-h-[200px] flex-1 px-4">
+            <div className="flex min-h-[200px] flex-1 flex-col items-center space-y-4 px-4 text-center">
               <div className="rounded-full bg-primary p-3 text-primary-foreground">
                 <Settings className="h-6 w-6" />
               </div>
-              <h3 className="text-xl font-bold">Customizable</h3>
-              <p className="text-muted-foreground min-h-[60px]">
-                Create and manage your own README templates and customize
-                default behaviors
+              <h3 className="text-xl font-bold">Configurable Workflows</h3>
+              <p className="min-h-[60px] text-muted-foreground">
+                Set defaults for output files, templates, and approval behavior
+                to match your documentation workflow.
               </p>
             </div>
           </div>
@@ -99,11 +103,12 @@ export default function Home() {
                 Ready to Simplify Your Documentation?
               </h2>
               <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                Get started with qmims today and create clear, comprehensive,
-                and contextually relevant documentation with minimal effort.
+                Start with a generated README, refine it with templates, and use
+                embedded instructions to keep your docs accurate as your project
+                evolves.
               </p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/docs/installation">
                 <Button size="lg" className="h-12 px-8">
                   Install Now
