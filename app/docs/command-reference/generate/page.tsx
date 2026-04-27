@@ -26,7 +26,7 @@ export default function GenerateCommandPage() {
         </h2>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate [path] [options]
           </pre>
         </div>
@@ -151,7 +151,7 @@ export default function GenerateCommandPage() {
               complete README from scratch.
             </p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode auto
               </pre>
             </div>
@@ -166,7 +166,7 @@ export default function GenerateCommandPage() {
               fill in the sections while preserving that structure.
             </p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:basic
               </pre>
             </div>
@@ -182,7 +182,7 @@ export default function GenerateCommandPage() {
               to produce the final output.
             </p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`qmims generate --mode instruct
+              <pre className="text-sm font-mono overflow-auto">{`qmims generate --mode instruct
 qmims generate --mode instruct:README.md`}</pre>
             </div>
           </div>
@@ -196,14 +196,16 @@ qmims generate --mode instruct:README.md`}</pre>
           <div>
             <p>Generate a README in auto mode for the current directory:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims generate</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims generate
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Generate a README for a specific project:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate /path/to/project
               </pre>
             </div>
@@ -212,7 +214,7 @@ qmims generate --mode instruct:README.md`}</pre>
           <div>
             <p>Generate using a built-in template:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:detailed
               </pre>
             </div>
@@ -221,7 +223,7 @@ qmims generate --mode instruct:README.md`}</pre>
           <div>
             <p>List the available templates:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template --list-available-templates
               </pre>
             </div>
@@ -230,7 +232,7 @@ qmims generate --mode instruct:README.md`}</pre>
           <div>
             <p>Generate to a custom output file:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --output DOCS.md
               </pre>
             </div>
@@ -239,21 +241,25 @@ qmims generate --mode instruct:README.md`}</pre>
           <div>
             <p>Preview the workflow without changing files:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims generate --dry-run</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims generate --dry-run
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Run with automatic approval for non-interactive workflows:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims generate --yes</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims generate --yes
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Generate from embedded instructions in a specific file:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode instruct:docs/README-template.md
               </pre>
             </div>
@@ -297,7 +303,7 @@ qmims generate --mode instruct:README.md`}</pre>
           <AlertDescription>
             You can combine options for a more tailored workflow. For example:
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:detailed --output docs/README.md
                 --force --yes
               </pre>

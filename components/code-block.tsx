@@ -1,39 +1,44 @@
-"use client"
+"use client";
 
-import React, { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { Copy } from "lucide-react"
-import { cn } from "@/lib/utils"
+import React, { useRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Copy } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface CodeBlockProps {
-  code: string
-  language?: string
-  className?: string
-  showLineNumbers?: boolean
+  code: string;
+  language?: string;
+  className?: string;
+  showLineNumbers?: boolean;
 }
 
-export function CodeBlock({ code, language = "bash", className, showLineNumbers = true }: CodeBlockProps) {
-  const codeRef = useRef<HTMLPreElement>(null)
-  const [copied, setCopied] = React.useState(false)
+export function CodeBlock({
+  code,
+  language = "bash",
+  className,
+  showLineNumbers = true,
+}: CodeBlockProps) {
+  const codeRef = useRef<HTMLPreElement>(null);
+  const [copied, setCopied] = React.useState(false);
 
   const copyToClipboard = async () => {
-    if (!codeRef.current) return
+    if (!codeRef.current) return;
 
     try {
-      await navigator.clipboard.writeText(code)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2000)
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
     } catch (err) {
-      console.error("Failed to copy code: ", err)
+      console.error("Failed to copy code: ", err);
     }
-  }
+  };
 
   return (
     <div className="relative group rounded-md overflow-hidden">
       <pre
         ref={codeRef}
         className={cn(
-          "bg-muted p-4 rounded-md overflow-x-auto text-sm font-mono",
+          "bg-muted p-4 rounded-md overflow-x-auto text-sm font-mono overflow-auto",
           showLineNumbers && "pl-12 relative",
           className,
         )}
@@ -60,8 +65,10 @@ export function CodeBlock({ code, language = "bash", className, showLineNumbers 
         <span className="sr-only">Copy</span>
       </Button>
       {copied && (
-        <div className="absolute right-2 top-2 bg-background/90 text-foreground px-2 py-1 rounded text-xs">Copied!</div>
+        <div className="absolute right-2 top-2 bg-background/90 text-foreground px-2 py-1 rounded text-xs">
+          Copied!
+        </div>
       )}
     </div>
-  )
+  );
 }

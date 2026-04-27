@@ -96,7 +96,9 @@ export default function GenerationModesPage() {
           </p>
 
           <div className="rounded-md bg-muted p-4">
-            <pre className="text-sm font-mono">qmims generate --mode auto</pre>
+            <pre className="text-sm font-mono overflow-auto">
+              qmims generate --mode auto
+            </pre>
           </div>
 
           <p>In auto mode, qmims typically asks Kiro to:</p>
@@ -138,7 +140,7 @@ export default function GenerationModesPage() {
           </p>
 
           <div className="rounded-md bg-muted p-4">
-            <pre className="text-sm font-mono">
+            <pre className="text-sm font-mono overflow-auto">
               qmims generate --mode template:basic
             </pre>
           </div>
@@ -166,7 +168,7 @@ export default function GenerationModesPage() {
           <p>You can also list available templates directly:</p>
 
           <div className="rounded-md bg-muted p-4">
-            <pre className="text-sm font-mono">
+            <pre className="text-sm font-mono overflow-auto">
               qmims generate --mode template --list-available-templates
             </pre>
           </div>
@@ -207,7 +209,7 @@ export default function GenerationModesPage() {
           </p>
 
           <div className="rounded-md bg-muted p-4">
-            <pre className="text-sm font-mono">
+            <pre className="text-sm font-mono overflow-auto">
               {`qmims generate --mode instruct
 qmims generate --mode instruct:path/to/README.md`}
             </pre>
@@ -219,7 +221,7 @@ qmims generate --mode instruct:path/to/README.md`}
           </p>
 
           <div className="rounded-md bg-muted p-4">
-            <pre className="text-sm font-mono overflow-auto">
+            <pre className="text-sm font-mono overflow-auto overflow-auto">
               {`# Project Title
 
 <!-- qmims: Generate a concise overview of the project based on its primary purpose. -->
@@ -326,7 +328,7 @@ qmims generate --mode instruct:path/to/README.md`}
       </h2>
 
       <div className="rounded-md bg-muted p-4">
-        <pre className="text-sm font-mono">
+        <pre className="text-sm font-mono overflow-auto">
           {`qmims generate
 qmims generate --mode template:detailed
 qmims generate --mode instruct

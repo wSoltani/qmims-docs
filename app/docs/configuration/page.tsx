@@ -118,7 +118,7 @@ export default function ConfigurationPage() {
         <p>A representative qmims configuration looks like this:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`{
+          <pre className="text-sm font-mono overflow-auto">{`{
   "user": {
     "name": "Your Name",
     "email": "your.email@example.com"
@@ -144,7 +144,7 @@ export default function ConfigurationPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims config list
+          <pre className="text-sm font-mono overflow-auto">{`qmims config list
 qmims config get defaults.mode
 qmims config set defaults.templateName detailed
 qmims config set defaults.outputFileName README.md
@@ -161,7 +161,7 @@ qmims config setup`}</pre>
           <div>
             <p>Use template mode by default:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set defaults.mode template
               </pre>
             </div>
@@ -170,7 +170,7 @@ qmims config setup`}</pre>
           <div>
             <p>Set a preferred template:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set defaults.templateName library
               </pre>
             </div>
@@ -179,7 +179,7 @@ qmims config setup`}</pre>
           <div>
             <p>Generate to a non-default file path:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set defaults.outputFileName docs/README.md
               </pre>
             </div>
@@ -188,7 +188,7 @@ qmims config setup`}</pre>
           <div>
             <p>Enable auto-approval through config:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set q.autoApproveEdits true
               </pre>
             </div>
@@ -203,7 +203,7 @@ qmims config setup`}</pre>
             need a valid Kiro session or a <code>KIRO_API_KEY</code> in headless
             environments.
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`kiro-cli login
+              <pre className="text-sm font-mono overflow-auto">{`kiro-cli login
 kiro-cli whoami
 kiro-cli doctor`}</pre>
             </div>

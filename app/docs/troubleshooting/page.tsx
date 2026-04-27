@@ -35,7 +35,7 @@ export default function TroubleshootingPage() {
           <AlertDescription>
             Before debugging anything deeper, make sure all three of these work:
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`node --version
+              <pre className="text-sm font-mono overflow-auto">{`node --version
 kiro-cli --version
 kiro-cli whoami`}</pre>
             </div>
@@ -53,14 +53,16 @@ kiro-cli whoami`}</pre>
               <p>You may see an error indicating that Kiro CLI is missing.</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`Error: Kiro CLI is not installed.
+                <pre className="text-sm font-mono overflow-auto">{`Error: Kiro CLI is not installed.
 qmims requires Kiro CLI to function.`}</pre>
               </div>
 
               <p>Verify whether Kiro CLI is available:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">kiro-cli --version</pre>
+                <pre className="text-sm font-mono overflow-auto">
+                  kiro-cli --version
+                </pre>
               </div>
 
               <p>If that fails, install Kiro CLI for your platform:</p>
@@ -84,12 +86,12 @@ qmims requires Kiro CLI to function.`}</pre>
 
               <div className="space-y-3">
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     irm &apos;https://cli.kiro.dev/install.ps1&apos; | iex
                   </pre>
                 </div>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     curl -fsSL https://cli.kiro.dev/install | bash
                   </pre>
                 </div>
@@ -117,13 +119,13 @@ qmims requires Kiro CLI to function.`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`Error: Kiro CLI is installed but you are not signed in.`}</pre>
+                <pre className="text-sm font-mono overflow-auto">{`Error: Kiro CLI is installed but you are not signed in.`}</pre>
               </div>
 
               <p>Start with the documented Kiro auth commands:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`kiro-cli login
+                <pre className="text-sm font-mono overflow-auto">{`kiro-cli login
 kiro-cli whoami
 kiro-cli doctor`}</pre>
               </div>
@@ -134,7 +136,7 @@ kiro-cli doctor`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   kiro-cli login --use-device-flow
                 </pre>
               </div>
@@ -146,11 +148,11 @@ kiro-cli doctor`}</pre>
 
               <div className="space-y-3">
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">{`# Linux / macOS
+                  <pre className="text-sm font-mono overflow-auto">{`# Linux / macOS
 export KIRO_API_KEY=your_api_key_here`}</pre>
                 </div>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">{`# Windows PowerShell
+                  <pre className="text-sm font-mono overflow-auto">{`# Windows PowerShell
 $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
                 </div>
               </div>
@@ -177,7 +179,7 @@ $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`kiro-cli whoami
+                <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli doctor`}</pre>
               </div>
 
@@ -209,7 +211,7 @@ kiro-cli doctor`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`Error: EACCES: permission denied, open 'README.md'`}</pre>
+                <pre className="text-sm font-mono overflow-auto">{`Error: EACCES: permission denied, open 'README.md'`}</pre>
               </div>
 
               <p>Try the following:</p>
@@ -224,7 +226,7 @@ kiro-cli doctor`}</pre>
               <p>On Linux or macOS, inspect file permissions with:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`ls -l README.md
+                <pre className="text-sm font-mono overflow-auto">{`ls -l README.md
 chmod 644 README.md`}</pre>
               </div>
 
@@ -244,20 +246,20 @@ chmod 644 README.md`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`Error: Template 'custom-template' not found`}</pre>
+                <pre className="text-sm font-mono overflow-auto">{`Error: Template 'custom-template' not found`}</pre>
               </div>
 
               <p>Start by listing available templates:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`qmims templates list
+                <pre className="text-sm font-mono overflow-auto">{`qmims templates list
 qmims generate --mode template --list-available-templates`}</pre>
               </div>
 
               <p>If you need to add a custom template:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   qmims templates add custom-template path/to/template.md
                 </pre>
               </div>
@@ -265,7 +267,7 @@ qmims generate --mode template --list-available-templates`}</pre>
               <p>Then generate with it explicitly:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   qmims generate --mode template:custom-template
                 </pre>
               </div>
@@ -283,13 +285,13 @@ qmims generate --mode template --list-available-templates`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`No embedded instructions found in 'README.md'. Add instructions using <!-- qmims: ... --> syntax.`}</pre>
+                <pre className="text-sm font-mono overflow-auto">{`No embedded instructions found in 'README.md'. Add instructions using <!-- qmims: ... --> syntax.`}</pre>
               </div>
 
               <p>Make sure your file contains comments like:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`# Project Title
+                <pre className="text-sm font-mono overflow-auto">{`# Project Title
 
 <!-- qmims: Generate a concise project overview based on the repository's main purpose. -->
 
@@ -304,7 +306,7 @@ qmims generate --mode template --list-available-templates`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   qmims generate --mode instruct:path/to/README.md
                 </pre>
               </div>
@@ -325,7 +327,9 @@ qmims generate --mode template --list-available-templates`}</pre>
               <p>Use dry run to verify the resolved target before editing:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">qmims edit --dry-run</pre>
+                <pre className="text-sm font-mono overflow-auto">
+                  qmims edit --dry-run
+                </pre>
               </div>
 
               <p>
@@ -334,7 +338,7 @@ qmims generate --mode template --list-available-templates`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   qmims edit docs/README.md
                 </pre>
               </div>
@@ -351,7 +355,7 @@ qmims generate --mode template --list-available-templates`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">
+                <pre className="text-sm font-mono overflow-auto">
                   command not found: qmims
                 </pre>
               </div>
@@ -359,14 +363,14 @@ qmims generate --mode template --list-available-templates`}</pre>
               <p>Check whether qmims is installed:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`npm list -g qmims
+                <pre className="text-sm font-mono overflow-auto">{`npm list -g qmims
 pnpm list -g qmims`}</pre>
               </div>
 
               <p>If needed, reinstall it globally:</p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`npm install -g qmims
+                <pre className="text-sm font-mono overflow-auto">{`npm install -g qmims
 # or
 pnpm add -g qmims`}</pre>
               </div>
@@ -390,7 +394,7 @@ pnpm add -g qmims`}</pre>
               </p>
 
               <div className="rounded-md bg-muted p-4">
-                <pre className="text-sm font-mono">{`Error: EACCES: permission denied, access '/usr/local/lib/node_modules'`}</pre>
+                <pre className="text-sm font-mono overflow-auto">{`Error: EACCES: permission denied, access '/usr/local/lib/node_modules'`}</pre>
               </div>
 
               <p>Common approaches:</p>
@@ -422,7 +426,7 @@ pnpm add -g qmims`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --verbose
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --verbose
 qmims edit --verbose`}</pre>
         </div>
 
@@ -441,7 +445,7 @@ qmims edit --verbose`}</pre>
           <AlertDescription>
             A good escalation path is:
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`kiro-cli whoami
+              <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli doctor
 qmims generate --dry-run
 qmims generate --verbose`}</pre>
@@ -459,7 +463,7 @@ qmims generate --verbose`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Check Node.js
+          <pre className="text-sm font-mono overflow-auto">{`# Check Node.js
 node --version
 
 # Check Kiro CLI
@@ -486,7 +490,7 @@ qmims --version`}</pre>
         <p>For command-specific usage, use built-in help:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims --help
+          <pre className="text-sm font-mono overflow-auto">{`qmims --help
 qmims generate --help
 qmims edit --help
 qmims config --help

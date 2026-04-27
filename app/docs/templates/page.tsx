@@ -41,7 +41,7 @@ export default function TemplatesPage() {
         <p>Generate a README from a built-in or custom template with:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate --mode template:templateName
           </pre>
         </div>
@@ -49,7 +49,7 @@ export default function TemplatesPage() {
         <p>For example, to use the detailed template:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate --mode template:detailed
           </pre>
         </div>
@@ -57,7 +57,7 @@ export default function TemplatesPage() {
         <p>To list available templates:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate --mode template --list-available-templates
           </pre>
         </div>
@@ -95,7 +95,7 @@ export default function TemplatesPage() {
               <li>License</li>
             </ul>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`# Project Name
+              <pre className="text-sm font-mono overflow-auto">{`# Project Name
 
 ## Overview
 
@@ -137,7 +137,7 @@ Describe the license here.`}</pre>
               <li>Acknowledgements</li>
             </ul>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`# Project Name
+              <pre className="text-sm font-mono overflow-auto">{`# Project Name
 
 ## Overview
 
@@ -182,7 +182,7 @@ Describe the license here.`}</pre>
               <li>License</li>
             </ul>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`# Project Name
+              <pre className="text-sm font-mono overflow-auto">{`# Project Name
 
 Short project description.
 
@@ -212,7 +212,7 @@ Describe the license here.`}</pre>
               <li>License</li>
             </ul>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`# Package Name
+              <pre className="text-sm font-mono overflow-auto">{`# Package Name
 
 ## Overview
 
@@ -255,7 +255,7 @@ Describe the license here.`}</pre>
               <li>License</li>
             </ul>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`# Service Name
+              <pre className="text-sm font-mono overflow-auto">{`# Service Name
 
 ## Overview
 
@@ -295,7 +295,7 @@ Describe the license here.`}</pre>
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Project Name
+          <pre className="text-sm font-mono overflow-auto">{`# Project Name
 
 ## Overview
 
@@ -331,7 +331,7 @@ Describe the license here.`}</pre>
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims templates add my-template path/to/template.md
           </pre>
         </div>
@@ -341,7 +341,7 @@ Describe the license here.`}</pre>
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate --mode template:my-template
           </pre>
         </div>
@@ -417,7 +417,7 @@ Describe the license here.`}</pre>
         </ol>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims templates add internal-standard docs/templates/internal.md
+          <pre className="text-sm font-mono overflow-auto">{`qmims templates add internal-standard docs/templates/internal.md
 qmims generate --mode template:internal-standard
 qmims edit`}</pre>
         </div>

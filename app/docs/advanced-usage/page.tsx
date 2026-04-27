@@ -47,7 +47,7 @@ export default function AdvancedUsagePage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --dry-run
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --dry-run
 qmims edit --dry-run`}</pre>
         </div>
 
@@ -74,7 +74,7 @@ qmims edit --dry-run`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --verbose
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --verbose
 qmims edit --verbose`}</pre>
         </div>
 
@@ -98,7 +98,9 @@ qmims edit --verbose`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">qmims generate --force</pre>
+          <pre className="text-sm font-mono overflow-auto">
+            qmims generate --force
+          </pre>
         </div>
 
         <Alert variant="destructive">
@@ -121,7 +123,7 @@ qmims edit --verbose`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --yes
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --yes
 qmims edit --yes`}</pre>
         </div>
 
@@ -130,7 +132,7 @@ qmims edit --yes`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims config set q.autoApproveEdits true
           </pre>
         </div>
@@ -152,7 +154,7 @@ qmims edit --yes`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims generate --output docs/PROJECT-README.md
           </pre>
         </div>
@@ -163,7 +165,7 @@ qmims edit --yes`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims config set defaults.outputFileName docs/PROJECT-README.md
           </pre>
         </div>
@@ -179,7 +181,7 @@ qmims edit --yes`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --mode template:detailed
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --mode template:detailed
 qmims generate --mode template:library
 qmims generate --mode template:service`}</pre>
         </div>
@@ -190,7 +192,7 @@ qmims generate --mode template:service`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims config set defaults.templateName detailed
           </pre>
         </div>
@@ -214,7 +216,7 @@ qmims generate --mode template:service`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Generate a first draft
+          <pre className="text-sm font-mono overflow-auto">{`# Generate a first draft
 qmims generate --mode template:detailed
 
 # Add embedded qmims instructions to selected sections
@@ -241,7 +243,7 @@ qmims edit`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --mode instruct
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --mode instruct
 qmims generate --mode instruct:README.md`}</pre>
         </div>
 
@@ -257,7 +259,7 @@ qmims generate --mode instruct:README.md`}</pre>
         <p>For local interactive usage, the simplest path is:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli login
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli login
 kiro-cli whoami`}</pre>
         </div>
 
@@ -266,7 +268,7 @@ kiro-cli whoami`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Linux / macOS
+          <pre className="text-sm font-mono overflow-auto">{`# Linux / macOS
 export KIRO_API_KEY=your_api_key_here
 
 # Windows PowerShell
@@ -279,7 +281,7 @@ $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli whoami
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli doctor`}</pre>
         </div>
 
@@ -293,7 +295,7 @@ kiro-cli doctor`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Generate a structured README and replace any existing file
+          <pre className="text-sm font-mono overflow-auto">{`# Generate a structured README and replace any existing file
 qmims generate --mode template:detailed --output docs/README.md --force
 
 # Preview a precise instruct-based workflow
@@ -340,7 +342,7 @@ qmims edit docs/README.md --yes --verbose`}</pre>
         </h2>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# 1. Verify Kiro
+          <pre className="text-sm font-mono overflow-auto">{`# 1. Verify Kiro
 kiro-cli whoami
 
 # 2. Configure defaults

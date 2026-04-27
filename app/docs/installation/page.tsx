@@ -34,7 +34,9 @@ export default function InstallationPage() {
             </h3>
             <p>Install Node.js version 18 or later.</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">node --version</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                node --version
+              </pre>
             </div>
           </div>
 
@@ -71,7 +73,7 @@ export default function InstallationPage() {
                     <strong>Windows Terminal</strong>, not Command Prompt.
                   </p>
                   <div className="rounded-md bg-muted p-4">
-                    <pre className="text-sm font-mono">
+                    <pre className="text-sm font-mono overflow-auto">
                       irm &apos;https://cli.kiro.dev/install.ps1&apos; | iex
                     </pre>
                   </div>
@@ -98,7 +100,7 @@ export default function InstallationPage() {
               <TabsContent value="macos" className="space-y-4">
                 <p>Install Kiro CLI using the official script:</p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     curl -fsSL https://cli.kiro.dev/install | bash
                   </pre>
                 </div>
@@ -129,12 +131,14 @@ export default function InstallationPage() {
             </h3>
             <p>Sign in interactively:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">kiro-cli login</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                kiro-cli login
+              </pre>
             </div>
 
             <p>Verify that Kiro CLI is available and authenticated:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`kiro-cli --version
+              <pre className="text-sm font-mono overflow-auto">{`kiro-cli --version
 kiro-cli whoami`}</pre>
             </div>
 
@@ -143,7 +147,7 @@ kiro-cli whoami`}</pre>
               convenient:
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 kiro-cli login --use-device-flow
               </pre>
             </div>
@@ -157,11 +161,11 @@ kiro-cli whoami`}</pre>
                 browser login.
                 <div className="mt-3 space-y-3">
                   <div className="rounded-md bg-muted p-4">
-                    <pre className="text-sm font-mono">{`# Linux / macOS
+                    <pre className="text-sm font-mono overflow-auto">{`# Linux / macOS
 export KIRO_API_KEY=your_api_key_here`}</pre>
                   </div>
                   <div className="rounded-md bg-muted p-4">
-                    <pre className="text-sm font-mono">{`# Windows PowerShell
+                    <pre className="text-sm font-mono overflow-auto">{`# Windows PowerShell
 $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
                   </div>
                 </div>
@@ -184,21 +188,25 @@ $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
           <TabsContent value="npm" className="space-y-4">
             <p>Install qmims globally with npm:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">npm install -g qmims</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                npm install -g qmims
+              </pre>
             </div>
           </TabsContent>
 
           <TabsContent value="pnpm" className="space-y-4">
             <p>Install qmims globally with pnpm:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">pnpm add -g qmims</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                pnpm add -g qmims
+              </pre>
             </div>
           </TabsContent>
 
           <TabsContent value="source" className="space-y-4">
             <p>To run or build qmims from source:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`git clone https://github.com/wSoltani/qmims.git
+              <pre className="text-sm font-mono overflow-auto">{`git clone https://github.com/wSoltani/qmims.git
 cd qmims
 pnpm install
 pnpm build
@@ -213,12 +221,12 @@ pnpm link --global`}</pre>
 
         <p>After installation, confirm that qmims is available:</p>
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">qmims --version</pre>
+          <pre className="text-sm font-mono overflow-auto">qmims --version</pre>
         </div>
 
         <p>Then verify your Kiro-backed workflow is ready:</p>
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli whoami
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 qmims generate --dry-run`}</pre>
         </div>
 
@@ -228,7 +236,7 @@ qmims generate --dry-run`}</pre>
 
         <p>Once everything is installed, a simple first run looks like this:</p>
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate
 qmims edit`}</pre>
         </div>
 
@@ -239,7 +247,7 @@ qmims edit`}</pre>
             If qmims reports that Kiro is missing or not authenticated, these
             are the main commands to check:
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">{`kiro-cli whoami
+              <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli login
 kiro-cli doctor`}</pre>
             </div>

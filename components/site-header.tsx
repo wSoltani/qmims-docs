@@ -70,12 +70,6 @@ export function SiteHeader() {
                 priority
               />
             </div>
-            <div className="hidden min-w-0 flex-col lg:flex">
-              <span className="text-sm font-semibold leading-none">qmims</span>
-              <span className="truncate text-xs text-muted-foreground">
-                Kiro-powered README generation
-              </span>
-            </div>
           </Link>
 
           <nav className="hidden items-center gap-6 md:flex">
@@ -95,12 +89,6 @@ export function SiteHeader() {
         </div>
 
         <div className="ml-auto flex items-center gap-2">
-          <div className="hidden xl:block">
-            <p className="text-xs text-muted-foreground">
-              Docs for the Kiro-based qmims workflow
-            </p>
-          </div>
-
           <CommandMenu />
           <ThemeToggle />
 

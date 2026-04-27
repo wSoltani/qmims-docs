@@ -42,7 +42,7 @@ export default function EmbeddedInstructionsPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`<!-- qmims: Your instruction here -->`}
           </pre>
         </div>
@@ -63,7 +63,7 @@ export default function EmbeddedInstructionsPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`# Project Title
 
 <!-- qmims: Generate a concise overview of the repository's purpose and primary use case. -->
@@ -94,7 +94,7 @@ export default function EmbeddedInstructionsPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`# My Library
 
 <!-- qmims: Write a short project summary focused on what problem this library solves. -->
@@ -136,7 +136,7 @@ export default function EmbeddedInstructionsPage() {
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`<!-- qmims: Generate a list of API endpoints based on the server routes in this repository. -->`}
           </pre>
         </div>
@@ -146,7 +146,7 @@ export default function EmbeddedInstructionsPage() {
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`<!-- qmims: Update this installation section to match the current package manager, runtime, and CLI requirements. -->`}
           </pre>
         </div>
@@ -156,7 +156,7 @@ export default function EmbeddedInstructionsPage() {
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`<!-- qmims: Add a Contributing section with practical setup and pull request guidance for this repository. -->`}
           </pre>
         </div>
@@ -166,7 +166,7 @@ export default function EmbeddedInstructionsPage() {
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`<!-- qmims: Document these commands as a table with columns for command, purpose, and example usage. -->`}
           </pre>
         </div>
@@ -181,7 +181,7 @@ export default function EmbeddedInstructionsPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`# Process instructions from an existing Markdown file
 qmims edit
 
@@ -219,7 +219,7 @@ qmims generate --mode instruct:path/to/README.md`}
           <div>
             <p className="font-semibold text-destructive">Less effective</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Write about installation. -->`}
               </pre>
             </div>
@@ -229,7 +229,7 @@ qmims generate --mode instruct:path/to/README.md`}
               More effective
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Provide step-by-step installation instructions using the detected package manager, including prerequisites and a quick verification command. -->`}
               </pre>
             </div>
@@ -244,7 +244,7 @@ qmims generate --mode instruct:path/to/README.md`}
           <div>
             <p className="font-semibold text-destructive">Less effective</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: List the features. -->`}
               </pre>
             </div>
@@ -254,7 +254,7 @@ qmims generate --mode instruct:path/to/README.md`}
               More effective
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: List the main features of this authentication service based on the API routes, middleware, and token-handling modules. -->`}
               </pre>
             </div>
@@ -269,7 +269,7 @@ qmims generate --mode instruct:path/to/README.md`}
           <div>
             <p className="font-semibold text-destructive">Less effective</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Document the commands. -->`}
               </pre>
             </div>
@@ -279,7 +279,7 @@ qmims generate --mode instruct:path/to/README.md`}
               More effective
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Document the CLI commands as a Markdown table with columns for command, description, and example usage. -->`}
               </pre>
             </div>
@@ -294,7 +294,7 @@ qmims generate --mode instruct:path/to/README.md`}
           <div>
             <p className="font-semibold text-destructive">Less effective</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Describe the project. -->`}
               </pre>
             </div>
@@ -304,7 +304,7 @@ qmims generate --mode instruct:path/to/README.md`}
               More effective
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Write a concise two-paragraph project overview in a practical, developer-focused tone. -->`}
               </pre>
             </div>
@@ -331,7 +331,7 @@ qmims generate --mode instruct:path/to/README.md`}
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`kiro-cli whoami
 kiro-cli login
 kiro-cli doctor`}
@@ -344,7 +344,7 @@ kiro-cli doctor`}
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`# Linux / macOS
 export KIRO_API_KEY=your_api_key_here
 
@@ -363,7 +363,7 @@ $env:KIRO_API_KEY = "your_api_key_here"`}
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`qmims edit --dry-run
 qmims generate --mode instruct --dry-run`}
           </pre>
@@ -388,7 +388,7 @@ qmims generate --mode instruct --dry-run`}
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`## Installation
 
 <!-- qmims: Update the installation instructions to reflect the current runtime requirements, package manager commands, and setup verification steps. -->`}
@@ -400,7 +400,7 @@ qmims generate --mode instruct --dry-run`}
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`## API Reference
 
 <!-- qmims: Generate API documentation for the main exported functions and classes, including parameters, return values, and short usage notes. -->`}
@@ -412,7 +412,7 @@ qmims generate --mode instruct --dry-run`}
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`## Usage Examples
 
 <!-- qmims: Add 3 practical usage examples that reflect the most common developer workflows supported by this project. -->`}
@@ -424,7 +424,7 @@ qmims generate --mode instruct --dry-run`}
         </h3>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono overflow-auto">
+          <pre className="text-sm font-mono overflow-auto overflow-auto">
             {`## Migration Notes
 
 <!-- qmims: Update this section to explain the migration from Amazon Q CLI to Kiro CLI, including new install, login, and troubleshooting commands. -->`}

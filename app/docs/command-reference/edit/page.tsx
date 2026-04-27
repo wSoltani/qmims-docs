@@ -26,7 +26,9 @@ export default function EditCommandPage() {
         </h2>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">qmims edit [file] [options]</pre>
+          <pre className="text-sm font-mono overflow-auto">
+            qmims edit [file] [options]
+          </pre>
         </div>
 
         <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight">
@@ -112,35 +114,43 @@ export default function EditCommandPage() {
               Edit <code>README.md</code> in the current directory:
             </p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit</pre>
+              <pre className="text-sm font-mono overflow-auto">qmims edit</pre>
             </div>
           </div>
 
           <div>
             <p>Edit a specific Markdown file:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit docs/README.md</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims edit docs/README.md
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Automatically approve the Kiro run:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit --yes</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims edit --yes
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Preview the workflow without changing files:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit --dry-run</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims edit --dry-run
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Show detailed diagnostics:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit --verbose</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims edit --verbose
+              </pre>
             </div>
           </div>
         </div>
@@ -194,7 +204,7 @@ export default function EditCommandPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`# Project Title
 
 <!-- qmims: Generate a concise overview based on the repository's main purpose. -->
@@ -223,7 +233,7 @@ export default function EditCommandPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli whoami
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli login
 kiro-cli doctor`}</pre>
         </div>
@@ -234,7 +244,7 @@ kiro-cli doctor`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Linux / macOS
+          <pre className="text-sm font-mono overflow-auto">{`# Linux / macOS
 export KIRO_API_KEY=your_api_key_here
 
 # Windows PowerShell
@@ -252,7 +262,9 @@ $env:KIRO_API_KEY = "your_api_key_here"`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">qmims edit --dry-run</pre>
+          <pre className="text-sm font-mono overflow-auto">
+            qmims edit --dry-run
+          </pre>
         </div>
 
         <Alert>

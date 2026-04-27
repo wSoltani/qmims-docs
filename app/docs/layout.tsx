@@ -21,9 +21,9 @@ export default function DocsLayout({
       <main className="relative py-6 lg:gap-10 lg:py-8">
         <div className="mx-auto mb-6 w-full min-w-0">
           <div className="rounded-lg border bg-muted/40 p-4">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+            <div className="flex flex-col gap-3 sm:flex-row sm:justify-between">
               <div className="flex gap-3">
-                <div className="mt-0.5 rounded-full border bg-background p-2 text-primary">
+                <div className="mt-0.5 rounded-full p-2 text-primary flex justify-center items-center">
                   <Info className="h-4 w-4" />
                 </div>
 
@@ -42,13 +42,15 @@ export default function DocsLayout({
                 </div>
               </div>
 
-              <Link
-                href="/docs/installation"
-                className="inline-flex items-center gap-1 text-sm font-medium text-primary transition-colors hover:text-primary/80"
-              >
-                View setup guide
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+              <div className="flex justify-center items-center">
+                <Link
+                  href="/docs/installation"
+                  className="inline-flex items-center text-sm font-medium text-primary transition-colors hover:text-primary/80"
+                >
+                  View setup guide
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>

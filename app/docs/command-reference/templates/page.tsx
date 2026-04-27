@@ -27,7 +27,7 @@ export default function TemplatesCommandPage() {
         </h2>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims templates &lt;action&gt; [name] [path]
           </pre>
         </div>
@@ -83,14 +83,16 @@ export default function TemplatesCommandPage() {
           <div>
             <p>List all available templates:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims templates list</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims templates list
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Show the content of the built-in basic template:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims templates show basic
               </pre>
             </div>
@@ -99,7 +101,7 @@ export default function TemplatesCommandPage() {
           <div>
             <p>Add a custom template from a Markdown file:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims templates add my-template path/to/template.md
               </pre>
             </div>
@@ -108,7 +110,7 @@ export default function TemplatesCommandPage() {
           <div>
             <p>Remove a custom template you no longer need:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims templates remove my-template
               </pre>
             </div>
@@ -117,7 +119,7 @@ export default function TemplatesCommandPage() {
           <div>
             <p>Use a template after adding it:</p>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:my-template
               </pre>
             </div>
@@ -202,7 +204,7 @@ export default function TemplatesCommandPage() {
         <p>A simple example template might look like this:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`# Project Name
+          <pre className="text-sm font-mono overflow-auto">{`# Project Name
 
 ## Overview
 
@@ -226,7 +228,7 @@ Describe the project's license here.`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims templates add internal-standard docs/templates/internal.md
           </pre>
         </div>

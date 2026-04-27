@@ -129,15 +129,6 @@ export function DocsSidebar() {
   return (
     <div className="h-full w-full pr-6">
       <div className="pb-6">
-        <div className="mb-6 rounded-lg border bg-muted/30 px-3 py-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-            Documentation
-          </p>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Kiro-based README generation, editing, templates, and configuration.
-          </p>
-        </div>
-
         <nav className="space-y-6" aria-label="Documentation navigation">
           {sections.map((section) => {
             const sectionActive = isSectionActive(pathname, section.items);

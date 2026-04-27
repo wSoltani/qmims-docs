@@ -108,7 +108,7 @@ export default function BestPracticesPage() {
               and produce a full README draft quickly.
             </p>
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode auto
               </pre>
             </div>
@@ -123,7 +123,7 @@ export default function BestPracticesPage() {
               generate from a built-in or custom template.
             </p>
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:detailed
               </pre>
             </div>
@@ -139,7 +139,7 @@ export default function BestPracticesPage() {
               what specific sections should say.
             </p>
             <div className="mt-3 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit</pre>
+              <pre className="text-sm font-mono overflow-auto">qmims edit</pre>
             </div>
           </div>
         </div>
@@ -163,7 +163,7 @@ export default function BestPracticesPage() {
                   Less effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: Write about installation -->`}
                   </pre>
                 </div>
@@ -173,7 +173,7 @@ export default function BestPracticesPage() {
                   More effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: Provide step-by-step installation instructions using the detected package manager, including prerequisites and a verification command. -->`}
                   </pre>
                 </div>
@@ -189,7 +189,7 @@ export default function BestPracticesPage() {
                   Less effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: List the features -->`}
                   </pre>
                 </div>
@@ -199,7 +199,7 @@ export default function BestPracticesPage() {
                   More effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: List the main user-facing features of this CLI tool based on the commands, options, and workflows implemented in the src directory. -->`}
                   </pre>
                 </div>
@@ -217,7 +217,7 @@ export default function BestPracticesPage() {
                   Less effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: Document the API -->`}
                   </pre>
                 </div>
@@ -227,7 +227,7 @@ export default function BestPracticesPage() {
                   More effective
                 </p>
                 <div className="rounded-md bg-muted p-4">
-                  <pre className="text-sm font-mono">
+                  <pre className="text-sm font-mono overflow-auto">
                     {`<!-- qmims: Document the exported API as a table with columns for name, purpose, parameters, and return value. -->`}
                   </pre>
                 </div>
@@ -275,7 +275,7 @@ export default function BestPracticesPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`qmims generate --dry-run
+          <pre className="text-sm font-mono overflow-auto">{`qmims generate --dry-run
 qmims edit --dry-run
 qmims generate --verbose`}</pre>
         </div>
@@ -302,7 +302,7 @@ qmims generate --verbose`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli whoami
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli whoami
 kiro-cli login
 kiro-cli doctor`}</pre>
         </div>
@@ -324,7 +324,7 @@ kiro-cli doctor`}</pre>
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             {`qmims generate
 git add README.md
 git commit -m "docs: update README"`}
@@ -344,7 +344,7 @@ git commit -m "docs: update README"`}
           <li>
             <strong>Generate a first draft</strong>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --dry-run{"\n"}qmims generate
               </pre>
             </div>
@@ -352,7 +352,7 @@ git commit -m "docs: update README"`}
           <li>
             <strong>Improve structure if needed</strong>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims generate --mode template:detailed
               </pre>
             </div>
@@ -360,7 +360,7 @@ git commit -m "docs: update README"`}
           <li>
             <strong>Add targeted embedded instructions</strong>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 {`<!-- qmims: Update this section based on the latest CLI behavior. -->`}
               </pre>
             </div>
@@ -368,7 +368,7 @@ git commit -m "docs: update README"`}
           <li>
             <strong>Process those instructions</strong>
             <div className="mt-2 rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims edit</pre>
+              <pre className="text-sm font-mono overflow-auto">qmims edit</pre>
             </div>
           </li>
           <li>

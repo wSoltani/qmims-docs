@@ -25,7 +25,7 @@ export default function ConfigCommandPage() {
         </h2>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">
+          <pre className="text-sm font-mono overflow-auto">
             qmims config &lt;action&gt; [key] [value] [options]
           </pre>
         </div>
@@ -114,14 +114,16 @@ export default function ConfigCommandPage() {
           <div>
             <p>List all configuration settings:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims config list</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims config list
+              </pre>
             </div>
           </div>
 
           <div>
             <p>Get the default generation mode:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config get defaults.mode
               </pre>
             </div>
@@ -130,7 +132,7 @@ export default function ConfigCommandPage() {
           <div>
             <p>Set the default template:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set defaults.templateName detailed
               </pre>
             </div>
@@ -139,7 +141,7 @@ export default function ConfigCommandPage() {
           <div>
             <p>Set the default output filename:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set defaults.outputFileName README.md
               </pre>
             </div>
@@ -148,7 +150,7 @@ export default function ConfigCommandPage() {
           <div>
             <p>Enable config-driven auto approval for Kiro-backed runs:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config set q.autoApproveEdits true
               </pre>
             </div>
@@ -157,7 +159,7 @@ export default function ConfigCommandPage() {
           <div>
             <p>Delete a configuration value:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">
+              <pre className="text-sm font-mono overflow-auto">
                 qmims config delete q.autoApproveEdits
               </pre>
             </div>
@@ -166,7 +168,9 @@ export default function ConfigCommandPage() {
           <div>
             <p>Run interactive setup:</p>
             <div className="rounded-md bg-muted p-4">
-              <pre className="text-sm font-mono">qmims config setup</pre>
+              <pre className="text-sm font-mono overflow-auto">
+                qmims config setup
+              </pre>
             </div>
           </div>
         </div>
@@ -239,7 +243,7 @@ export default function ConfigCommandPage() {
         <p>A typical qmims configuration looks like this:</p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`{
+          <pre className="text-sm font-mono overflow-auto">{`{
   "user": {
     "name": "Your Name",
     "email": "your.email@example.com"
@@ -279,7 +283,7 @@ export default function ConfigCommandPage() {
         </p>
 
         <div className="rounded-md bg-muted p-4">
-          <pre className="text-sm font-mono">{`kiro-cli login
+          <pre className="text-sm font-mono overflow-auto">{`kiro-cli login
 kiro-cli whoami
 kiro-cli doctor`}</pre>
         </div>
